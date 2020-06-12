@@ -5,13 +5,24 @@
   "main": "index.js",
   "homepage": "https://bradtraversy.github.io/modern_portfolio",
   "scripts": {
+    "watch:sass": "node-sass scss/main.scss  dist/css/main.css -w",
     "sass": "node-sass -w scss/ -o dist/css/ --recursive",
-    "deploy": "gh-pages -d dist"
+    "compile:sass": "node-sass scss/main.scss dist/css/main.comp.css",
+    "deploy": "gh-pages -d dist",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' dist/css/main.comp.css -o dist/css/main.prefix.css",
+    "compress:css": "node-sass css/main.prefix.css css/main.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "author": "Brad Traversy",
   "license": "MIT",
   "dependencies": {
     "gh-pages": "^1.2.0",
-    "node-sass": "^4.9.2"
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.1",
+    "autoprefixer": "^7.1.4",
+    "concat": "^1.0.3",
+    "postcss-cli": "^4.1.1"
   }
 }
