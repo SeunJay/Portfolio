@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "gh-pages": "^1.2.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "npm-run-all": "^4.1.1",
     "autoprefixer": "^7.1.4",
     "concat": "^1.0.3",
